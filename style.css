@@ -1,0 +1,184 @@
+@font-face {
+    font-family: vazir;
+    src: url(./font/Vazir-Regular.woff) format("woff");
+}
+@font-face {
+    font-family: vazirBold;
+    font-weight: bold;
+    src: url(./font/Vazir-Bold.woff) format("woff");
+}
+:root {
+    --container-color: #f9fafb;
+    --text-color: #2e9aec;
+    --menu-color: #ffffffd1;
+}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    font-family: vazir;
+}
+body {
+    background-color: var(--container-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.position-fixed {overflow: hidden; height: 100%;}
+section {
+    margin: 6rem auto;
+}
+header {
+    background-image: url("background.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+.up-btn {
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+}
+.menu-ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--menu-color);
+    color: var(--text-color);
+}
+.side-menu {
+    background-color: var(--text-color);
+    height: 100vh;
+    width: 50%;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 1;
+    transition: 1s all;
+}
+.moving {left: 50%;}
+.btn {
+    background-color: var(--text-color);
+    border-radius: 4px;
+}
+.list-item {
+    position: relative;
+    cursor: pointer;
+    display: none;
+}
+/* li:last-child {    margin-right: 14em} */
+li:not(:first-child)::after {
+    content: "";
+    background-color: var(--text-color);
+    position: absolute;
+    width: 0;
+    height: 4px;
+    left: 0;
+    bottom: -40%;
+    transition: 0.3s all;
+}
+li:not(:first-child):hover::after {  width: 100%}
+i:hover{border: none}
+
+.header-title-container {
+    background-color: var(--container-color);
+    margin: auto;
+    padding: 2rem 1rem;
+}
+.title { color: var(--text-color); font-family: vazirBold;}
+.search-inp {width: 60%; background-color: var(--text-color)}
+.search-inp::placeholder {color: #fff;}
+.search-btn {  background-color: var(--text-color);}
+
+#city-selection:focus, input:focus {
+    border: none;
+    outline: 2px solid var(--text-color);
+}
+
+
+/* /// */
+
+.special-container {  justify-content: space-between}
+
+/* //// */
+
+.selected-loc {display: none;}
+#city-selection{
+    background-color: var(--text-color);
+    color: var(--container-color);
+    border-radius: 4px;
+}
+
+/* //// */
+.doctors-container, .blogs-container, .comments-container {
+    display: flex;
+    justify-content: space-between;
+}
+.doctor-card {
+    /* width: fit-content; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.doctor-img {
+    background-color: var(--text-color);
+    width: 4rem;
+    height: 4rem;
+}
+
+
+/* //// */
+.blog-card , .doctor-card , .special, .comment-card {   cursor: pointer;}
+.blog-card:hover , .doctor-card:hover , .special:hover , .comment-card:hover{
+    outline: 2px solid var(--text-color);
+}
+.lurem-info  {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+} 
+.blog-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+footer {
+    background-color: var(--text-color);
+    display: grid;
+    margin: auto;
+    grid-template-columns: 50% 50%;
+}
+.connection i {transition: 0.3s all ease; cursor: pointer;}
+.connection > i:hover {
+    transform: translateY(-6px);
+}
+
+
+@media only screen and (max-width: 992px) {
+    header {height: auto;}
+    .header-title-container {background-color: var(--menu-color);}
+} 
+@media only screen and (min-width: 768px) {
+    .header-title-container {margin-top: 10rem;}
+    .list-item {display: flex;}
+    
+}
+@media only screen and (max-width: 768px) {
+    .list-item:first-child , .list-item:last-child {
+        display: flex;
+    }
+    header {height: auto;}
+    ul {justify-content: space-between;}
+    .search-inp {
+        width: 80%;
+    }
+    .search-inp::placeholder {font-size: 12px;}
+    footer {
+        display: flex;
+        flex-direction: column;
+    }
+}
