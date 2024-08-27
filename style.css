@@ -1,11 +1,11 @@
 @font-face {
     font-family: vazir;
-    src: url(./font/Vazir-Regular.woff) format("woff");
+    src: url(./Vazir-Regular.woff) format("woff");
 }
 @font-face {
     font-family: vazirBold;
     font-weight: bold;
-    src: url(./font/Vazir-Bold.woff) format("woff");
+    src: url(./Vazir-Bold.woff) format("woff");
 }
 :root {
     --container-color: #f9fafb;
